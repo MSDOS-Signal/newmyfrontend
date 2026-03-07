@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">XinhaoChat</string>
+    <string name="title_activity_main">XinhaoChat</string>
+    <string name="package_name">com.xinhao.chat</string>
+    <string name="custom_url_scheme">com.xinhao.chat</string>
+</resources>

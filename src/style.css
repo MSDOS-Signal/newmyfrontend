@@ -1,0 +1,261 @@
+:root {
+  /* =========================================
+     LIGHT THEME (Modern Blue/Grey Style)
+     ========================================= */
+  
+  /* Backgrounds */
+  --bg-primary: #ffffff;
+  --bg-secondary: #f5f7fa; /* Light blue-grey tint */
+  --bg-tertiary: #eef2f6;
+  --bg-glass: rgba(255, 255, 255, 0.95);
+  --bg-hover: rgba(59, 130, 246, 0.08); /* Blue tint hover */
+  
+  /* Text */
+  --text-primary: #1f2937; /* Dark slate */
+  --text-secondary: #6b7280; /* Cool grey */
+  --text-tertiary: #9ca3af;
+
+  /* Borders & Shadows */
+  --border-color: #e5e7eb;
+  --shadow-color: rgba(0, 0, 0, 0.05);
+
+  /* Function-Specific Colors (LIGHT MODE = BLUE THEME) */
+  
+  /* 1. Brand/Accent */
+  --accent-color: #3b82f6; /* Tailwind Blue 500 */
+  --accent-hover: #2563eb;
+  --accent-light: rgba(59, 130, 246, 0.1);
+
+  /* 2. Chat Bubbles */
+  --bubble-sent: #3b82f6;
+  --bubble-text-sent: #ffffff;
+  --bubble-received: #f3f4f6;
+  --bubble-text-received: #1f2937;
+
+  /* 3. Moments */
+  --moments-accent: #3b82f6; /* Blue for names/likes */
+  --moments-bg: #ffffff;
+
+  /* 4. Inputs */
+  --input-bg: #f9fafb;
+  --input-placeholder: #9ca3af;
+
+  /* 5. Nav/Sidebar (Light Mode Specific) */
+  --nav-active-bg: transparent; /* No background fill requested */
+  --nav-active-color: #3b82f6; /* Blue text/icon */
+  --nav-inactive-color: #6b7280;
+
+  font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+:root.dark {
+  /* =========================================
+     DARK THEME (Cyberpunk/Matrix Green Style)
+     ========================================= */
+  
+  /* Backgrounds */
+  --bg-primary: #0f172a; /* Deep slate blue/black */
+  --bg-secondary: #1e293b; /* Lighter slate */
+  --bg-tertiary: #334155;
+  --bg-glass: rgba(15, 23, 42, 0.85);
+  --bg-hover: rgba(16, 185, 129, 0.1); /* Green tint hover */
+
+  /* Text */
+  --text-primary: #f1f5f9;
+  --text-secondary: #94a3b8;
+  --text-tertiary: #64748b;
+
+  /* Borders & Shadows */
+  --border-color: #334155;
+  --shadow-color: rgba(0, 0, 0, 0.3);
+
+  /* Function-Specific Colors (DARK MODE = GREEN THEME) */
+
+  /* 1. Brand/Accent */
+  --accent-color: #10b981; /* Emerald Green */
+  --accent-hover: #059669;
+  --accent-light: rgba(16, 185, 129, 0.15);
+
+  /* 2. Chat Bubbles */
+  --bubble-sent: #10b981;
+  --bubble-text-sent: #ffffff;
+  --bubble-received: #334155;
+  --bubble-text-received: #f1f5f9;
+
+  /* 3. Moments */
+  --moments-accent: #34d399; /* Lighter green for text */
+  --moments-bg: #0f172a;
+
+  /* 4. Inputs */
+  --input-bg: #1e293b;
+  --input-placeholder: #64748b;
+
+  /* 5. Nav/Sidebar (Dark Mode Specific) */
+  --nav-active-bg: transparent;
+  --nav-active-color: #10b981; /* Green text/icon */
+  --nav-inactive-color: #94a3b8;
+  
+  color-scheme: dark;
+}
+
+/* Animations */
+.fade-enter-active,
+.fade-leave-active {
+  transition: opacity 0.3s ease;
+}
+
+.fade-enter-from,
+.fade-leave-to {
+  opacity: 0;
+}
+
+.slide-up-enter-active,
+.slide-up-leave-active {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
+.slide-up-enter-from,
+.slide-up-leave-to {
+  transform: translateY(20px);
+  opacity: 0;
+}
+
+.list-enter-active,
+.list-leave-active {
+  transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+.list-enter-from,
+.list-leave-to {
+  opacity: 0;
+  transform: translateX(-20px);
+}
+
+/* Hover Effects */
+.clickable {
+    transition: transform 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), opacity 0.2s;
+}
+.clickable:active {
+    transform: scale(0.96);
+    opacity: 0.8;
+}
+
+/* Mobile Fixes */
+@media (max-width: 768px) {
+  .chat-layout {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    overflow: hidden;
+  }
+  .sub-sidebar {
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+  }
+  .list-container, .moments-container {
+    flex: 1;
+    overflow-y: auto;
+    padding-bottom: 70px !important; /* Enough for bottom nav */
+    height: auto !important; /* Reset */
+    box-sizing: border-box;
+  }
+  .main-area {
+    padding-bottom: 70px;
+  }
+  .bottom-nav {
+    z-index: 9999 !important;
+  }
+  .moments-list-scroll {
+    padding-bottom: 50px;
+  }
+  .show-mobile {
+      display: inline-flex !important;
+  }
+}
+
+body {
+  margin: 0;
+  min-width: 320px;
+  min-height: 100vh;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  transition: background-color 0.3s, color 0.3s;
+  font-family: "Microsoft YaHei", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+}
+
+/* Scrollbar styling */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: transparent; 
+}
+ 
+::-webkit-scrollbar-thumb {
+  background: var(--border-color); 
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--text-secondary); 
+}
+
+.tool-icon {
+    padding: 8px;
+    cursor: pointer;
+    border-radius: 4px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.tool-icon:hover {
+    background-color: var(--bg-hover);
+}
+
+.audio-bubble {
+    display: flex;
+    align-items: center;
+    background-color: var(--bg-secondary);
+    border-radius: 8px;
+    padding: 5px;
+    margin-top: 5px; /* Add spacing to avoid overlapping with name/avatar */
+}
+
+.msg-audio {
+    width: 250px;
+    height: 40px;
+}
+
+/* Make bubbles relative for absolute positioning if needed */
+.bubble, .image-bubble, .video-bubble, .audio-bubble, .file-bubble {
+    position: relative;
+    /* Ensure content is clickable */
+    pointer-events: auto; 
+    z-index: 1;
+}
+
+.message-content {
+    max-width: 70%;
+    display: flex;
+    flex-direction: column;
+    position: relative; /* Context menu positioning context */
+    pointer-events: auto; /* Ensure wrapper allows clicks */
+    cursor: default;
+}
+
+/* Ensure action trigger area doesn't block clicks on media controls */
+.action-trigger-area {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 0; /* Lower than media content z-index */
+    /* pointer-events: none; - Removing this would disable context menu trigger on empty space */
+    /* We need clicks to pass through to media controls but right clicks to trigger context menu */
+    /* This is tricky. Let's make it not cover the media elements specifically. */
+    display: none; /* Disable the overlay approach, use direct event binding on wrapper */
+}

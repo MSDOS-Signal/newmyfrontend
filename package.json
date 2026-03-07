@@ -1,0 +1,86 @@
+{
+  "name": "frontend",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "main": "dist-electron/main.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "electron:build": "cross-env ELECTRON_BUILD=true vite build && electron-builder",
+    "electron:build:win": "cross-env ELECTRON_BUILD=true vite build && electron-builder --win",
+    "electron:build:mac": "cross-env ELECTRON_BUILD=true vite build && electron-builder --mac",
+    "electron:build:linux": "cross-env ELECTRON_BUILD=true vite build && electron-builder --linux",
+    "cap:add:android": "npx cap add android",
+    "cap:sync": "npm run build && npx cap sync",
+    "cap:open:android": "npx cap open android"
+  },
+  "build": {
+    "appId": "com.xinhao.chat",
+    "productName": "XinhaoChat",
+    "directories": {
+      "output": "dist_electron"
+    },
+    "files": [
+      "dist-electron/**/*",
+      "dist/**/*"
+    ],
+    "win": {
+      "target": "nsis",
+      "icon": "public/icon.png"
+    },
+    "mac": {
+      "target": "dmg",
+      "icon": "public/icon.icns"
+    },
+    "linux": {
+      "target": "tar.gz",
+      "icon": "public/icon.png",
+      "category": "Utility",
+      "artifactName": "${productName}-${version}-linux.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "npmRebuild": false,
+    "extraMetadata": {
+      "permissions": {
+        "microphone": {
+          "description": "需要麦克风权限进行语音通话"
+        }
+      }
+    }
+  },
+  "dependencies": {
+    "@capacitor/android": "^8.1.0",
+    "@capacitor/cli": "^8.1.0",
+    "@capacitor/core": "^8.1.0",
+    "@capacitor/ios": "^8.1.0",
+    "@capacitor/keyboard": "^8.0.1",
+    "@element-plus/icons-vue": "^2.3.2",
+    "@stomp/stompjs": "^7.3.0",
+    "axios": "^1.13.6",
+    "crypto-js": "^4.2.0",
+    "element-plus": "^2.13.3",
+    "events": "^3.3.0",
+    "highlight.js": "^11.11.1",
+    "markdown-it": "^14.1.1",
+    "pinia": "^3.0.4",
+    "sass": "^1.97.3",
+    "sockjs-client": "^1.6.1",
+    "vue": "^3.5.25",
+    "vue-cropperjs": "^5.0.0",
+    "vue-router": "^5.0.3"
+  },
+  "devDependencies": {
+    "@vitejs/plugin-vue": "^5.2.1",
+    "cross-env": "^10.1.0",
+    "electron": "^40.6.1",
+    "electron-builder": "^26.8.1",
+    "vite": "^5.4.11",
+    "vite-plugin-electron": "^0.29.0",
+    "vite-plugin-electron-renderer": "^0.14.6"
+  }
+}
